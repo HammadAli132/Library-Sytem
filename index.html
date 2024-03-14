@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Library | Educators</title>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
     <header>
@@ -51,6 +51,28 @@
             </div>
         </section>
     </main>
+    <div class="sign-in-form">
+        <form action="#" id="login-form">
+            <h1 id="form-heading">Welcome To The Eduactors</h1>
+            <div class="form-row">
+                <label for="f-name">First Name: </label>
+                <input type="text" name="firstName" id="f-name" placeholder="First Name" required>
+            </div>
+            <div class="form-row">
+                <label for="l-name">Last Name: </label>
+                <input type="text" name="lastName" id="l-name" placeholder="Last Name" required>
+            </div>
+            <div class="form-row">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" placeholder="abc@xyz.com" required>
+            </div>
+            <div class="form-row">
+                <label for="phNo">Phone Number: </label>
+                <input type="tel" name="phNumber" id="phNo" placeholder="Contact Number" required>
+            </div>
+            <input type="submit" value="Log In" id="submit-form">
+        </form>
+    </div>
     <footer>
         <div class="personal-img">
             <img src="img/MyPic.jpeg" alt="Creator's Pic" id="my-pic">

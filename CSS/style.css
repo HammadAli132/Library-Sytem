@@ -121,6 +121,7 @@ main {
    overflow: auto;
    box-shadow: 2px 2px 6px gray;
    border-radius: 10px;
+   border: none;
 }
 
 #profile-heading {
@@ -138,6 +139,72 @@ main {
 
 .bold {
     font-weight: bold;
+}
+
+.sign-in-form {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.686);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.display-form {
+    display: flex;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid black;
+    align-items: center;
+    gap: 10px;
+    background-color: rgb(226, 226, 226);
+    border-radius: 10px;
+    border: none;
+    box-shadow: 2px 2px 5px rgb(41, 41, 41);
+}
+
+#form-heading {
+    background-color: var(--header-background);
+    color: whitesmoke;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 10px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 70%;
+}
+
+.form-row input {
+    padding: 5px;
+    border: none;
+    width: 100%;
+}
+
+#login-form input[type="submit"] {
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 5px;
+    color: whitesmoke;
+    background-color: var(--header-background);
+    font-weight: bold;
+    transition: all .3s;
+}
+
+#login-form input[type="submit"]:hover {
+    cursor: pointer;
+    transform: scale(1.1);
 }
 
 footer {
