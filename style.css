@@ -31,6 +31,8 @@ body {
 header {
     font-size: 1.2rem;
     font-weight: bold;
+    position: relative;
+    z-index: 1;
 }
 
 .hamburger {
@@ -89,12 +91,84 @@ header {
     background-color: rgb(210, 209, 209);
 }
 
+main {
+    display: flex;
+}
+
+.user-profile {
+    border: 2px solid black;
+}
+
+.grid-container {
+    width: calc(99.2vw - min(25%, 40rem));
+    height: 70vh;
+}
+
+.profile-section {
+    width: min(25%, 40rem);
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-profile {
+   width: 70%;
+   line-height: 3rem;
+   overflow: auto;
+   box-shadow: 2px 2px 6px gray;
+   border-radius: 10px;
+}
+
+#profile-heading {
+    font-size: 1.6rem;
+    text-align: center;
+    text-decoration: underline;
+    text-transform: uppercase;background-color: var(--header-background);
+    color: whitesmoke;
+    padding: 10px;
+}
+
+#user-details {
+    padding: 5px;
+}
+
+.bold {
+    font-weight: bold;
+}
 
 footer {
     border-top: 1px solid rgb(190, 190, 190);
     margin: auto 20px 0 20px;
-    padding: 20px 0;
+    padding: 2px 0;
     font-size: 1.1rem;
     font-weight: bold;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+#my-pic {
+    border-radius: 50%;
+    height: 4rem;
+}
+
+.personal-img {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.footer-links img {
+    height: 30px;
 }
