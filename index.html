@@ -30,7 +30,35 @@
         </div>
     </header>
     <main>
-        <section class="grid-container"></section>
+        <section class="grid-container">
+            <div class="container">
+                <div class="book-card">
+                    <div class="card-image"></div>
+                    <div class="separator"></div>
+                    <div class="book-details">
+                        <div class="book-n">
+                            <span class="BH">Name: </span>
+                            <span class="user-BN"></span>
+                        </div>
+                        <div class="book-a">
+                            <span class="BH">Author: </span>
+                            <span class="user-BA"></span>
+                        </div>
+                        <div class="book-p">
+                            <span class="BH">Pages: </span>
+                            <span class="user-BP"></span>
+                        </div>
+                        <div class="book-s">
+                            <span class="BH">Status: </span>
+                            <span class="user-BS"></span>
+                        </div>
+                    </div>
+                </div>
+                <div id="add-book-card">
+                    <div class="add-book-img"></div>
+                </div>
+            </div>
+        </section>
         <section class="profile-section">
             <div class="user-profile">
                 <h1 id="profile-heading">My Profile</h1>
@@ -71,8 +99,37 @@
                 <input type="tel" name="phNumber" id="phNo" placeholder="Contact Number" required>
             </div>
             <div class="submittion">
-                <button id="cancel">Cancel</button>
+                <button class="signin-cancel">Cancel</button>
                 <input type="submit" value="Log In" id="submit-form">
+            </div>
+        </form>
+    </div>
+    <div class="book-form-bg">
+        <form action="#" id="book-form">
+            <h1 id="b-form-heading">Enter Book Details</h1>
+            <div class="b-form-row">
+                <label for="b-name">Book Name:</label>
+                <input type="text" id="b-name" placeholder="Atomic Habits" required>
+            </div>
+            <div class="b-form-row">
+                <label for="b-author">Book Authur:</label>
+                <input type="text" id="b-author" placeholder="James Clear" required>
+            </div>
+            <div class="b-form-row">
+                <label for="b-pages">Book Pages:</label>
+                <input type="number" id="b-pages" placeholder="305" required>
+            </div>
+            <div class="b-form-row">
+                <label>Status:</label>
+                <div id="status-menu">
+                    <input type="radio" name="status" id="read" required> Read
+                    <input type="radio" name="status" id="pending" required> Pending
+                    <input type="radio" name="status" id="unread" required> Unread
+                </div>
+            </div>
+            <div class="submittion">
+                <button class="book-cancel">Cancel</button>
+                <input type="submit" value="Add Book" id="submit-book-form">
             </div>
         </form>
     </div>

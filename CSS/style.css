@@ -6,6 +6,7 @@
 
 :root {
     --header-background: rgb(82, 129, 228);
+    --card-image-bg: rgb(68, 69, 69);
 }
 
 html {
@@ -100,6 +101,58 @@ main {
     height: 70vh;
 }
 
+.container {
+    display: grid;
+    padding: 10px;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, 200px); 
+}
+
+.book-card, #add-book-card {
+    height: 250px;
+    padding: 5px;
+    box-shadow: 2px 2px 5px gray;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+#add-book-card {
+    transition: all .3s;
+}
+
+.card-image {
+    height: 60%;
+    background: url("/img/book.png") center center/contain;
+    background-color: var(--card-image-bg);
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.add-book-img {
+    height: 100%;
+    background: url("/img/add_book.png") center center/contain;
+    background-repeat: no-repeat;
+}
+
+#add-book-card:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+
+.separator {
+    margin: 5px;
+    background: var(--card-image-bg);
+    height: 2px;
+}
+
+.book-details {
+    line-height: 1.2rem;
+}
+
+.BH {
+    font-weight: bold;
+}
+
 .profile-section {
     width: min(25%, 40rem);
     min-height: 100vh;
@@ -137,7 +190,7 @@ main {
     font-weight: bold;
 }
 
-.sign-in-form {
+.sign-in-form, .book-form-bg {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.686);
     top: 0;
@@ -154,10 +207,9 @@ main {
     display: flex;
 }
 
-#login-form {
+#login-form, #book-form {
     display: flex;
     flex-direction: column;
-    border: 2px solid black;
     align-items: center;
     gap: 10px;
     background-color: rgb(226, 226, 226);
@@ -166,7 +218,11 @@ main {
     box-shadow: 2px 2px 5px rgb(41, 41, 41);
 }
 
-#form-heading {
+#login-form label, #book-form label {
+    font-weight: bold;
+}
+
+#form-heading, #b-form-heading {
     background-color: var(--header-background);
     color: whitesmoke;
     border-top-left-radius: 10px;
@@ -174,20 +230,20 @@ main {
     padding: 10px;
 }
 
-.form-row {
+.form-row, .b-form-row {
     display: flex;
     flex-direction: column;
     gap: 2px;
     width: 70%;
 }
 
-.form-row input {
+.form-row input, .b-form-row input {
     padding: 5px;
     border: none;
     width: 100%;
 }
 
-#login-form input[type="submit"] {
+#login-form input[type="submit"], #book-form input[type="submit"] {
     padding: 5px 10px;
     margin-bottom: 10px;
     border: none;
@@ -198,12 +254,18 @@ main {
     transition: all .3s;
 }
 
-#login-form input[type="submit"]:hover {
+#login-form input[type="submit"]:hover, #book-form input[type="submit"]:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
 
-#cancel {
+#status-menu {
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly;
+}
+
+.signin-cancel, .book-cancel {
     padding: 5px 10px;
     margin-bottom: 10px;
     border: none;
@@ -213,7 +275,7 @@ main {
     transition: all .3s;
 }
 
-#cancel:hover {
+.signin-cancel:hover, .book-cancel:hover {
     cursor: pointer;
     transform: scale(1.1);
 }
