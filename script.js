@@ -101,7 +101,18 @@ function addBookToLibrary(book) {
         </div>
         <div id="${bookID}" style="display: none;"></div> 
     </div>`;
-    const likeBtn = document.getElementById("heart");
+    bookCard.querySelector("#heart").addEventListener('click', e => {
+        if (e.target.getAttribute("src") === "img/hollow_heart .png") {
+            e.target.setAttribute("src", "img/heart.png");
+            lbCount++;
+        }
+        else if (e.target.getAttribute("src") === "img/heart.png") {
+            e.target.setAttribute("src", "img/hollow_heart .png");
+            if (lbCount > 0)
+                lbCount--;
+        }
+        likedBook.innerText = lbCount;
+    });
     bookCard.querySelector("#BN").innerText = book.name;
     bookCard.querySelector("#BA").innerText = book.author;
     bookCard.querySelector("#BP").innerText = book.pages;
