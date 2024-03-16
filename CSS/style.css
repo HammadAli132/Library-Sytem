@@ -92,13 +92,8 @@ main {
     display: flex;
 }
 
-.user-profile {
-    border: 2px solid black;
-}
-
 .grid-container {
     width: calc(99.2vw - min(25%, 40rem));
-    height: 70vh;
 }
 
 .container {
@@ -159,6 +154,7 @@ main {
     position: fixed;
     top: 0;
     right: 0;
+    bottom: 0;
     display: flex;
     align-items: center;
     justify-content: center;

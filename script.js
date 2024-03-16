@@ -43,6 +43,7 @@ const bookForm = document.getElementById("book-form");
 const bookCancelBtn = document.querySelector(".book-cancel");
 const addBookBtn = document.getElementById("add-book-card");
 const addBookPage = document.querySelector(".book-form-bg");
+
 const myLibrary = [];
 function Book(name, author, pages, status) {
     this.name = name;
@@ -78,7 +79,11 @@ function addBookToLibrary(book) {
     bookCard.querySelector("#BA").innerText = book.author;
     bookCard.querySelector("#BP").innerText = book.pages;
     bookCard.querySelector("#BS").innerText = book.status;
+    bookLibrary.removeChild(addBookBtn);
     bookLibrary.appendChild(bookCard);
+    bookLibrary.appendChild(addBookBtn);
+    myLibrary.push(bookCard);
+
 }
 
 addBookBtn.addEventListener('click', () => {
