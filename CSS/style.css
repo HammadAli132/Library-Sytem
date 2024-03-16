@@ -109,6 +109,7 @@ main {
     box-shadow: 2px 2px 5px gray;
     border-radius: 10px;
     background-color: whitesmoke;
+    overflow:auto;
 }
 
 #add-book-card {
@@ -116,7 +117,7 @@ main {
 }
 
 .card-image {
-    height: 60%;
+    height: 50%;
     background: url("/img/book.png") center center/contain;
     background-color: var(--card-image-bg);
     background-repeat: no-repeat;

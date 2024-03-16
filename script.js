@@ -1,12 +1,21 @@
 const year = document.getElementById("year");
 year.innerText = new Date().getFullYear();
 const signIn = document.getElementById("sign-in");
+let isSignIn = false;
 const logOut = document.getElementById("log-out");
 const signInPage = document.querySelector(".sign-in-form");
 const loginForm = document.getElementById("login-form");
 const userName = document.getElementById("user-name");
 const userEmail = document.getElementById("user-email");
 const userPhNo = document.getElementById("user-phNo");
+const readBook = document.getElementById("read-book");
+let rbCount = 0;
+const unRreadBook = document.getElementById("unread-book");
+let unrbCount = 0;
+const pendingBook = document.getElementById("pending-book");
+let pbCount = 0;
+const likedBook = document.getElementById("liked-book");
+let lbCount = 0;
 const profileCancelBtn = document.querySelector(".signin-cancel");
 const bookLibrary = document.querySelector(".container");
 
@@ -17,9 +26,11 @@ logOut.addEventListener('click', () => {
     userName.innerText = "-";
     userEmail.innerText = "-";
     userPhNo.innerText = "-";
+    isSignIn = false;
 });
 
 loginForm.addEventListener('submit', (e) => {
+    isSignIn = true;
     e.preventDefault();
     const fName = document.getElementById("f-name").value;
     const lName = document.getElementById("l-name").value;
@@ -87,6 +98,10 @@ function addBookToLibrary(book) {
 }
 
 addBookBtn.addEventListener('click', () => {
+    if (isSignIn === false) {
+        alert("Please Sign In First ----->");
+        return;
+    }
     addBookPage.classList.add("display-form");
 });
 
@@ -103,6 +118,20 @@ bookForm.addEventListener("submit", (e) => {
             return;
         }
     });
+    switch (status) {
+        case "read":
+            rbCount++;
+            readBook.innerText = rbCount;
+            break;
+        case "unread":
+            unrbCount++;
+            unRreadBook.innerText = unrbCount;
+            break;
+        case "pending":
+            pbCount++;
+            pendingBook.innerText = pbCount;
+            break;
+    }
     status = status[0].toUpperCase() + status.slice(1);
     let book = new Book(bName, bAuthor, bPages, status);
     addBookToLibrary(book);

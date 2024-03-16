@@ -12,12 +12,12 @@
         <div class="navbar">
             <div class="nav-logo">
                 <h1>
-                    <a href="index.html">The Educators</a>
+                    <a href="index.html" onclick="event.preventDefault()">The Educators</a>
                 </h1>
             </div>
             <div class="nav-links">
                 <ul>
-                    <li class="links"><a href="index.html">Home</a></li>
+                    <li class="links"><a href="index.html" onclick="event.preventDefault()">Home</a></li>
                     <li class="links"><a href="#">Books</a></li>
                     <li class="links"><a href="#">Journals</a></li>
                     <li class="links"><a href="#">Contact Us</a></li>
@@ -52,6 +52,22 @@
                     <div class="phNo-sec">
                         <span class="bold">Phone Number: </span>
                         <span id="user-phNo">-</span>
+                    </div>
+                    <div class="read-book-sec">
+                        <span class="bold">Read Books: </span>
+                        <span id="read-book">0</span>
+                    </div>
+                    <div class="pending-book-sec">
+                        <span class="bold">Pending Books: </span>
+                        <span id="pending-book">0</span>
+                    </div>
+                    <div class="unread-book-sec">
+                        <span class="bold">Unread Books: </span>
+                        <span id="unread-book">0</span>
+                    </div>
+                    <div class="liked-book-sec">
+                        <span class="bold">Liked Books: </span>
+                        <span id="liked-book">0</span>
                     </div>
                 </div>
             </div>
@@ -100,9 +116,9 @@
             <div class="b-form-row">
                 <label>Status:</label>
                 <div id="status-menu">
-                    <input type="radio" name="status" id="read" required> Read
-                    <input type="radio" name="status" id="pending" required> Pending
                     <input type="radio" name="status" id="unread" required> Unread
+                    <input type="radio" name="status" id="pending" required> Pending
+                    <input type="radio" name="status" id="read" required> Read
                 </div>
             </div>
             <div class="submittion">
