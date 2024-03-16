@@ -18,6 +18,7 @@ const likedBook = document.getElementById("liked-book");
 let lbCount = 0;
 const profileCancelBtn = document.querySelector(".signin-cancel");
 const bookLibrary = document.querySelector(".container");
+const myLibrary = [];
 
 signIn.addEventListener('click', () => {
     signInPage.classList.add("display-form");
@@ -30,6 +31,35 @@ logOut.addEventListener('click', () => {
     document.getElementById("l-name").value = "";
     document.getElementById("email").value = "";
     document.getElementById("phNo").value = "";
+    for (let i = myLibrary.length - 1; i >= 0; i--) {
+        if (myLibrary[i] === null) {
+            myLibrary.pop();
+            continue; 
+        } 
+        let book = myLibrary[i];
+        myLibrary.pop();
+        const status = book.querySelector("#BS").innerText;
+        const isLiked = book.querySelector("#heart").getAttribute("src");
+        switch (status) {
+            case "Read":
+                rbCount--;
+                readBook.innerText = rbCount;
+                break;
+            case "Unread":
+                unrbCount--;
+                unRreadBook.innerText = unrbCount;
+                break;
+            case "Pending":
+                pbCount--;
+                pendingBook.innerText = pbCount;
+                break;
+            }
+            if (isLiked === "img/heart.png") {
+                lbCount--;
+                likedBook.innerText = lbCount;
+            }
+        bookLibrary.removeChild(book);
+    }
     isSignIn = false;
 });
 
@@ -64,7 +94,6 @@ const addBookBtn = document.getElementById("add-book-card");
 const addBookPage = document.querySelector(".book-form-bg");
 let bookID = 0;
 
-const myLibrary = [];
 function Book(name, author, pages, status) {
     this.name = name;
     this.author = author;
@@ -73,6 +102,7 @@ function Book(name, author, pages, status) {
 }
 
 function addBookToLibrary(book) {
+    bookID++;
     const bookCard = document.createElement("div");
     bookCard.setAttribute("class", "book-card");
     bookCard.innerHTML = `
@@ -95,11 +125,10 @@ function addBookToLibrary(book) {
             <span class="BH">Status: </span>
             <span class="user-BS" id="BS"></span>
         </div>
-        <div class="operations">
+        <div class="operations" id="${bookID}">
             <img src="img/hollow_heart .png" alt="Like" id="heart">
             <img src="img/delete.png" alt="Delete" id="del">
         </div>
-        <div id="${bookID}" style="display: none;"></div> 
     </div>`;
     bookCard.querySelector("#heart").addEventListener('click', e => {
         if (e.target.getAttribute("src") === "img/hollow_heart .png") {
@@ -113,10 +142,52 @@ function addBookToLibrary(book) {
         }
         likedBook.innerText = lbCount;
     });
+    bookCard.querySelector("#del").addEventListener('click', e => {
+        let id = (e.target.parentElement.id) - 1;
+        console.log(id);
+        let book = myLibrary[id];
+        myLibrary[id] = null;
+        const status = book.querySelector("#BS").innerText;
+        const isLiked = book.querySelector("#heart").getAttribute("src");
+        switch (status) {
+            case "Read":
+                rbCount--;
+                readBook.innerText = rbCount;
+                break;
+            case "Unread":
+                unrbCount--;
+                unRreadBook.innerText = unrbCount;
+                break;
+            case "Pending":
+                pbCount--;
+                pendingBook.innerText = pbCount;
+                break;
+        }
+        if (isLiked === "img/heart.png") {
+            lbCount--;
+            likedBook.innerText = lbCount;
+        }
+        bookLibrary.removeChild(book);
+    });
     bookCard.querySelector("#BN").innerText = book.name;
     bookCard.querySelector("#BA").innerText = book.author;
     bookCard.querySelector("#BP").innerText = book.pages;
     bookCard.querySelector("#BS").innerText = book.status;
+    const status = bookCard.querySelector("#BS").innerText;
+    switch (status) {
+        case "Read":
+            rbCount++;
+            readBook.innerText = rbCount;
+            break;
+        case "Unread":
+            unrbCount++;
+            unRreadBook.innerText = unrbCount;
+            break;
+        case "Pending":
+            pbCount++;
+            pendingBook.innerText = pbCount;
+            break;
+    }
     bookLibrary.removeChild(addBookBtn);
     bookLibrary.appendChild(bookCard);
     bookLibrary.appendChild(addBookBtn);
@@ -124,16 +195,15 @@ function addBookToLibrary(book) {
 }
 
 addBookBtn.addEventListener('click', () => {
-    // if (isSignIn === false) {
-    //     alert("Please Sign In First ----->");
-    //     return;
-    // }
+    if (isSignIn === false) {
+        alert("Please Sign In First ----->");
+        return;
+    }
     addBookPage.classList.add("display-form");
 });
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    bookID++;
     const bName = document.getElementById("b-name").value;
     const bAuthor = document.getElementById("b-author").value;
     const bPages = document.getElementById("b-pages").value;
@@ -145,20 +215,6 @@ bookForm.addEventListener("submit", (e) => {
             return;
         }
     });
-    switch (status) {
-        case "read":
-            rbCount++;
-            readBook.innerText = rbCount;
-            break;
-        case "unread":
-            unrbCount++;
-            unRreadBook.innerText = unrbCount;
-            break;
-        case "pending":
-            pbCount++;
-            pendingBook.innerText = pbCount;
-            break;
-    }
     status = status[0].toUpperCase() + status.slice(1);
     let book = new Book(bName, bAuthor, bPages, status);
     addBookToLibrary(book);
