@@ -31,6 +31,14 @@ loginForm.addEventListener('submit', (e) => {
     signInPage.classList.remove("display-form");
 });
 
+profileCancelBtn.addEventListener("click", () => {
+    document.getElementById("f-name").value = "";
+    document.getElementById("l-name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phNo").value = "";
+    signInPage.classList.remove("display-form");
+});
+
 const bookForm = document.getElementById("book-form");
 const bookCancelBtn = document.querySelector(".book-cancel");
 const addBookBtn = document.getElementById("add-book-card");
@@ -93,15 +101,13 @@ bookForm.addEventListener("submit", (e) => {
     status = status[0].toUpperCase() + status.slice(1);
     let book = new Book(bName, bAuthor, bPages, status);
     addBookToLibrary(book);
+    document.getElementById("b-name").value = "";
+    document.getElementById("b-author").value = "";
+    document.getElementById("b-pages").value = "";
+    document.getElementsByName("status").forEach(stat => {
+        stat.checked = false;
+    });
     addBookPage.classList.remove("display-form");
-});
-
-profileCancelBtn.addEventListener("click", () => {
-    document.getElementById("f-name").value = "";
-    document.getElementById("l-name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("phNo").value = "";
-    signInPage.classList.remove("display-form");
 });
 
 bookCancelBtn.addEventListener('click', () => {
