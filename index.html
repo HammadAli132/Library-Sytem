@@ -1,145 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library | Educators</title>
     <script src="script.js" defer></script>
-    <link rel="stylesheet" href="CSS/style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
     <header>
-        <div class="navbar">
-            <div class="nav-logo">
-                <h1>
-                    <a href="index.html" onclick="event.preventDefault()">The Educators</a>
-                </h1>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li class="links"><a href="index.html" onclick="event.preventDefault()">Home</a></li>
-                    <li class="links"><a href="#">Books</a></li>
-                    <li class="links"><a href="#">Journals</a></li>
-                    <li class="links"><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="nav-sign-ins">
-                <button id="sign-in">SIGN IN</button>
-                <button id="log-out">Log Out</button>
-            </div>
+      <div class="navbar">
+        <div class="nav-logo">
+          <h1>
+            <a href="index.html" onclick="event.preventDefault()"
+              >The Educators</a
+            >
+          </h1>
         </div>
+        <div class="nav-links">
+          <ul>
+            <li class="links">
+              <a href="index.html" onclick="event.preventDefault()">Home</a>
+            </li>
+            <li class="links"><a href="#">Books</a></li>
+            <li class="links"><a href="#">Journals</a></li>
+            <li class="links"><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="nav-sign-ins">
+          <button id="sign-in">SIGN IN</button>
+          <button id="log-out">Log Out</button>
+        </div>
+      </div>
     </header>
     <main>
-        <section class="grid-container">
-            <div class="container">
-                <div id="add-book-card">
-                    <div class="add-book-img"></div>
-                </div>
+      <section class="grid-container">
+        <div class="container">
+          <div id="add-book-card">
+            <div class="add-book-img"></div>
+          </div>
+          <!-- <div class="book-card">
+            <div class="card-image"></div>
+            <div class="separator"></div>
+            <div class="book-details">
+              <div class="book-n">
+                <span class="BH">Name: </span>
+                <span class="user-BN" id="BN"></span>
+              </div>
+              <div class="book-a">
+                <span class="BH">Author: </span>
+                <span class="user-BA" id="BA"></span>
+              </div>
+              <div class="book-p">
+                <span class="BH">Pages: </span>
+                <span class="user-BP" id="BP"></span>
+              </div>
+              <div class="book-s">
+                <span class="BH">Status: </span>
+                <span class="user-BS" id="BS"></span>
+              </div>
+              <div class="operations">
+                <img src="img/hollow_heart .png" alt="Like" id="heart" />
+                <img src="img/delete.png" alt="Delete" id="del" />
+              </div>
+              <div id="${bookID}" style="display: none"></div>
             </div>
-        </section>
-        <section class="profile-section">
-            <div class="user-profile">
-                <h1 id="profile-heading">My Profile</h1>
-                <div id="user-details">
-                    <div class="name-sec">
-                        <span class="bold">Name: </span>
-                        <span id="user-name">-</span>
-                    </div>
-                    <div class="email-sec">
-                        <span class="bold">Email: </span>
-                        <span id="user-email">-</span>
-                    </div>
-                    <div class="phNo-sec">
-                        <span class="bold">Phone Number: </span>
-                        <span id="user-phNo">-</span>
-                    </div>
-                    <div class="read-book-sec">
-                        <span class="bold">Read Books: </span>
-                        <span id="read-book">0</span>
-                    </div>
-                    <div class="pending-book-sec">
-                        <span class="bold">Pending Books: </span>
-                        <span id="pending-book">0</span>
-                    </div>
-                    <div class="unread-book-sec">
-                        <span class="bold">Unread Books: </span>
-                        <span id="unread-book">0</span>
-                    </div>
-                    <div class="liked-book-sec">
-                        <span class="bold">Liked Books: </span>
-                        <span id="liked-book">0</span>
-                    </div>
-                </div>
+          </div> -->
+        </div>
+      </section>
+      <section class="profile-section">
+        <div class="user-profile">
+          <h1 id="profile-heading">My Profile</h1>
+          <div id="user-details">
+            <div class="name-sec">
+              <span class="bold">Name: </span>
+              <span id="user-name">-</span>
             </div>
-        </section>
+            <div class="email-sec">
+              <span class="bold">Email: </span>
+              <span id="user-email">-</span>
+            </div>
+            <div class="phNo-sec">
+              <span class="bold">Phone Number: </span>
+              <span id="user-phNo">-</span>
+            </div>
+            <div class="read-book-sec">
+              <span class="bold">Read Books: </span>
+              <span id="read-book">0</span>
+            </div>
+            <div class="pending-book-sec">
+              <span class="bold">Pending Books: </span>
+              <span id="pending-book">0</span>
+            </div>
+            <div class="unread-book-sec">
+              <span class="bold">Unread Books: </span>
+              <span id="unread-book">0</span>
+            </div>
+            <div class="liked-book-sec">
+              <span class="bold">Liked Books: </span>
+              <span id="liked-book">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
     <div class="sign-in-form">
-        <form action="#" id="login-form">
-            <h1 id="form-heading">Welcome To The Eduactors</h1>
-            <div class="form-row">
-                <label for="f-name">First Name: </label>
-                <input type="text" name="firstName" id="f-name" placeholder="First Name" required>
-            </div>
-            <div class="form-row">
-                <label for="l-name">Last Name: </label>
-                <input type="text" name="lastName" id="l-name" placeholder="Last Name" required>
-            </div>
-            <div class="form-row">
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" placeholder="abc@xyz.com" required>
-            </div>
-            <div class="form-row">
-                <label for="phNo">Phone Number: </label>
-                <input type="tel" name="phNumber" id="phNo" placeholder="Contact Number" required>
-            </div>
-            <div class="submittion">
-                <button class="signin-cancel">Cancel</button>
-                <input type="submit" value="Log In" id="submit-form">
-            </div>
-        </form>
+      <form action="#" id="login-form">
+        <h1 id="form-heading">Welcome To The Eduactors</h1>
+        <div class="form-row">
+          <label for="f-name">First Name: </label>
+          <input
+            type="text"
+            name="firstName"
+            id="f-name"
+            placeholder="First Name"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="l-name">Last Name: </label>
+          <input
+            type="text"
+            name="lastName"
+            id="l-name"
+            placeholder="Last Name"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="email">Email: </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="abc@xyz.com"
+            required
+          />
+        </div>
+        <div class="form-row">
+          <label for="phNo">Phone Number: </label>
+          <input
+            type="tel"
+            name="phNumber"
+            id="phNo"
+            placeholder="Contact Number"
+            required
+          />
+        </div>
+        <div class="submittion">
+          <button class="signin-cancel">Cancel</button>
+          <input type="submit" value="Log In" id="submit-form" />
+        </div>
+      </form>
     </div>
     <div class="book-form-bg">
-        <form action="#" id="book-form">
-            <h1 id="b-form-heading">Enter Book Details</h1>
-            <div class="b-form-row">
-                <label for="b-name">Book Name:</label>
-                <input type="text" id="b-name" placeholder="Atomic Habits" required>
-            </div>
-            <div class="b-form-row">
-                <label for="b-author">Book Authur:</label>
-                <input type="text" id="b-author" placeholder="James Clear" required>
-            </div>
-            <div class="b-form-row">
-                <label for="b-pages">Book Pages:</label>
-                <input type="number" id="b-pages" placeholder="305" required>
-            </div>
-            <div class="b-form-row">
-                <label>Status:</label>
-                <div id="status-menu">
-                    <input type="radio" name="status" id="unread" required> Unread
-                    <input type="radio" name="status" id="pending" required> Pending
-                    <input type="radio" name="status" id="read" required> Read
-                </div>
-            </div>
-            <div class="submittion">
-                <button class="book-cancel">Cancel</button>
-                <input type="submit" value="Add Book" id="submit-book-form">
-            </div>
-        </form>
+      <form action="#" id="book-form">
+        <h1 id="b-form-heading">Enter Book Details</h1>
+        <div class="b-form-row">
+          <label for="b-name">Book Name:</label>
+          <input type="text" id="b-name" placeholder="Atomic Habits" required />
+        </div>
+        <div class="b-form-row">
+          <label for="b-author">Book Authur:</label>
+          <input type="text" id="b-author" placeholder="James Clear" required />
+        </div>
+        <div class="b-form-row">
+          <label for="b-pages">Book Pages:</label>
+          <input type="number" id="b-pages" placeholder="305" required />
+        </div>
+        <div class="b-form-row">
+          <label>Status:</label>
+          <div id="status-menu">
+            <input type="radio" name="status" id="unread" required /> Unread
+            <input type="radio" name="status" id="pending" required /> Pending
+            <input type="radio" name="status" id="read" required /> Read
+          </div>
+        </div>
+        <div class="submittion">
+          <button class="book-cancel">Cancel</button>
+          <input type="submit" value="Add Book" id="submit-book-form" />
+        </div>
+      </form>
     </div>
     <footer>
-        <div class="personal-img">
-            <img src="img/MyPic.jpeg" alt="Creator's Pic" id="my-pic">
-            <span>Hammad Ali</span>
+      <div class="personal-img">
+        <img src="img/MyPic.jpeg" alt="Creator's Pic" id="my-pic" />
+        <span>Hammad Ali</span>
+      </div>
+      <span>
+        Developer: Hammad Ali | &copy; Copyright <span id="year"></span> | All
+        Rights Reserved
+      </span>
+      <div class="footer-links">
+        <div class="f-link">
+          <a href="https://github.com/HammadAli132" target="_blank"
+            ><img src="img/github.png" alt="github"
+          /></a>
         </div>
-        <span>
-            Developer: Hammad Ali | &copy; Copyright <span id="year"></span> | All Rights Reserved    
-        </span>
-        <div class="footer-links">
-            <div class="f-link"><a href="https://github.com/HammadAli132" target="_blank"><img src="img/github.png" alt="github"></a></div>
-            <div class="f-link"><a href="https://www.linkedin.com/in/hammad-ali-a28bb2243/" target="_blank"><img src="img/linkedin.png" alt="linkedin"></a></div>
-            <div class="f-link"><a href="https://www.instagram.com/hammad_ali_132/" target="_blank"><img src="img/instagram.png" alt="instagram"></a></div>
+        <div class="f-link">
+          <a
+            href="https://www.linkedin.com/in/hammad-ali-a28bb2243/"
+            target="_blank"
+            ><img src="img/linkedin.png" alt="linkedin"
+          /></a>
         </div>
+        <div class="f-link">
+          <a href="https://www.instagram.com/hammad_ali_132/" target="_blank"
+            ><img src="img/instagram.png" alt="instagram"
+          /></a>
+        </div>
+      </div>
     </footer>
-    </body>
-    </html>
+  </body>
+</html>

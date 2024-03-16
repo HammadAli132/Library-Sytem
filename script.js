@@ -26,6 +26,10 @@ logOut.addEventListener('click', () => {
     userName.innerText = "-";
     userEmail.innerText = "-";
     userPhNo.innerText = "-";
+    document.getElementById("f-name").value = "";
+    document.getElementById("l-name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phNo").value = "";
     isSignIn = false;
 });
 
@@ -36,6 +40,10 @@ loginForm.addEventListener('submit', (e) => {
     const lName = document.getElementById("l-name").value;
     const email = document.getElementById("email").value;
     const phNumber = document.getElementById("phNo").value;
+    document.getElementById("f-name").value = "";
+    document.getElementById("l-name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("phNo").value = "";
     userName.innerText = `${fName} ${lName}`;
     userEmail.innerText = email;
     userPhNo.innerText = phNumber;
@@ -54,6 +62,7 @@ const bookForm = document.getElementById("book-form");
 const bookCancelBtn = document.querySelector(".book-cancel");
 const addBookBtn = document.getElementById("add-book-card");
 const addBookPage = document.querySelector(".book-form-bg");
+let bookID = 0;
 
 const myLibrary = [];
 function Book(name, author, pages, status) {
@@ -66,7 +75,8 @@ function Book(name, author, pages, status) {
 function addBookToLibrary(book) {
     const bookCard = document.createElement("div");
     bookCard.setAttribute("class", "book-card");
-    bookCard.innerHTML = `<div class="card-image"></div>
+    bookCard.innerHTML = `
+    <div class="card-image"></div>
     <div class="separator"></div>
     <div class="book-details">
         <div class="book-n">
@@ -85,7 +95,13 @@ function addBookToLibrary(book) {
             <span class="BH">Status: </span>
             <span class="user-BS" id="BS"></span>
         </div>
+        <div class="operations">
+            <img src="img/hollow_heart .png" alt="Like" id="heart">
+            <img src="img/delete.png" alt="Delete" id="del">
+        </div>
+        <div id="${bookID}" style="display: none;"></div> 
     </div>`;
+    const likeBtn = document.getElementById("heart");
     bookCard.querySelector("#BN").innerText = book.name;
     bookCard.querySelector("#BA").innerText = book.author;
     bookCard.querySelector("#BP").innerText = book.pages;
@@ -94,19 +110,19 @@ function addBookToLibrary(book) {
     bookLibrary.appendChild(bookCard);
     bookLibrary.appendChild(addBookBtn);
     myLibrary.push(bookCard);
-
 }
 
 addBookBtn.addEventListener('click', () => {
-    if (isSignIn === false) {
-        alert("Please Sign In First ----->");
-        return;
-    }
+    // if (isSignIn === false) {
+    //     alert("Please Sign In First ----->");
+    //     return;
+    // }
     addBookPage.classList.add("display-form");
 });
 
 bookForm.addEventListener("submit", (e) => {
     e.preventDefault();
+    bookID++;
     const bName = document.getElementById("b-name").value;
     const bAuthor = document.getElementById("b-author").value;
     const bPages = document.getElementById("b-pages").value;

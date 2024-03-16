@@ -104,12 +104,32 @@ main {
 }
 
 .book-card, #add-book-card {
+    display: flex;
+    flex-direction: column;
     height: 250px;
     padding: 5px;
     box-shadow: 2px 2px 5px gray;
     border-radius: 10px;
     background-color: whitesmoke;
     overflow:auto;
+}
+
+.operations {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 5px;
+}
+
+.operations > img {
+   height: 25px;
+   transition: all.3s;
+}
+
+.operations > img:hover {
+    transform: scale(1.2);
+    cursor: pointer;
 }
 
 #add-book-card {
